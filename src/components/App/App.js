@@ -1,6 +1,7 @@
 import React from "react";
-import reactLogo from "./assets/react.svg";
-import agGridLogo from "./assets/ag-grid.png";
+import reactLogo from "../../assets/react.svg";
+import agGridLogo from "../../assets/ag-grid.png";
+import Grid from "../Grid/Grid";
 import "./App.scss";
 
 const openNewWindow = url => window.open(url, "_blank");
@@ -25,6 +26,9 @@ function App() {
         </div>
         <p>Handling live streaming updates with javascript</p>
       </header>
+      <div className="container">
+        <Grid />
+      </div>
     </div>
   );
 }
