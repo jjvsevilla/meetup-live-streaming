@@ -1,10 +1,13 @@
 import { ROW_COUNT_CHANGED, ROW_DATA, DATA_UPDATED } from "./viewportService";
 
+const UPDATE_DATA_INTERVAL = 50;
+const SEND_EVENT_TO_VIEWPORT_INTERVAL = 20;
+
 export function createMockServer() {
   function MockServer() {
     this.connections = {};
     this.nextConnectionId = 0;
-    setInterval(this.periodicallyUpdateData.bind(this), 100);
+    setInterval(this.periodicallyUpdateData.bind(this), UPDATE_DATA_INTERVAL);
   }
 
   MockServer.prototype.periodicallyUpdateData = function() {
@@ -110,7 +113,7 @@ export function createMockServer() {
 
   MockServer.prototype.sendEventAsync = function(connectionId, event) {
     const listener = this.connections[connectionId].listener;
-    setTimeout(() => listener(event), 20);
+    setTimeout(() => listener(event), SEND_EVENT_TO_VIEWPORT_INTERVAL);
   };
 
   MockServer.prototype.disconnect = function(connectionId) {

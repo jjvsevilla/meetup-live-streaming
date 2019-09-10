@@ -9,6 +9,8 @@ import "./Grid.scss";
 const apiUrl =
   "https://rawgit.com/ag-grid/ag-grid/master/packages/ag-grid-docs/src/stocks.json";
 
+const FIT_COLUMNS_INTERVAL = 100;
+
 class Grid extends Component {
   constructor(props) {
     super(props);
@@ -89,7 +91,7 @@ class Grid extends Component {
         const viewportDatasource = createViewportDatasource(mockServer);
         params.api.setViewportDatasource(viewportDatasource);
 
-        setTimeout(() => params.api.sizeColumnsToFit(), 100);
+        setTimeout(() => params.api.sizeColumnsToFit(), FIT_COLUMNS_INTERVAL);
       });
   };
 

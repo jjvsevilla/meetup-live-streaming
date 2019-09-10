@@ -1,7 +1,8 @@
 import React from "react";
-import reactLogo from "../../assets/react.svg";
+import reactLogo from "../../assets/react.png";
 import agGridLogo from "../../assets/ag-grid.png";
 import Grid from "../Grid/Grid";
+import { Link } from "@reach/router";
 import "./App.scss";
 
 const openNewWindow = url => window.open(url, "_blank");
@@ -25,6 +26,7 @@ function App() {
           </button>
         </div>
         <p>Handling live streaming updates with javascript</p>
+        <Link to="advanced">What next?</Link>
       </header>
       <div className="container">
         <Grid />
